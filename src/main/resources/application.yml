@@ -1,0 +1,26 @@
+spring:            
+    # spring datasource jpa
+    datasource: 
+        driver-class-name: org.mariadb.jdbc.Driver
+        url: jdbc:mariadb://127.0.0.1:3306/log_clone?autoReconnect=true
+        username: root
+        password: root
+        poolName: SpringBootHikariCP
+        maximumPoolSize: 5
+        minimumIdle: 3
+        maxLifetime: 2000000
+        connectionTimeout: 30000
+        idleTimeout: 30000
+                
+# konfigurasi flyway
+flyway:
+    locations:
+        classpath: db/migration
+
+# konfigurasi log        
+logging:
+    level:
+        org:
+            springframework:
+                web: DEBUG    
+            flywaydb: DEBUG
