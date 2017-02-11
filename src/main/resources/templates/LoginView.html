@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+        @Author Rizki Mufrizal <mufrizalrizki@gmail.com>
+        @Web <https://RizkiMufrizal.github.io>
+        @Since Feb 11, 2017
+        @Time 9:26:17 PM
+        @Encoding UTF-8
+        @Project Management-Backup-MongoDB
+        @Package Expression package is undefined on line 9, column 20 in Templates/Other/html.html.
+-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>User Login</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+        <link rel="stylesheet" th:href="@{/stylesheet/signin.css}" />
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+        <div class="container">
+
+            <form class="form-signin" th:action="@{/login}" method="post">
+
+                <div th:if="${param.error}" id="error" style="text-align: center" class="alert alert-danger">
+                    <a href="" class="close" data-dismiss="alert">
+                        &times;
+                    </a>
+                    <strong>Error</strong><p></p> Username Dan Password Salah
+                </div>
+
+                <div th:if="${param.logout}" id="logout" style="text-align: center" class="alert alert-success">
+                    <a href="" class="close" data-dismiss="alert">
+                        &times;
+                    </a>
+                    <strong>Info</strong><p></p> Anda Berhasil LogOut
+                </div>
+
+                <h2 class="form-signin-heading">Please sign in</h2>
+                <label for="inputEmail" class="sr-only">Username</label>
+                <input name="username" type="text" id="inputEmail" class="form-control" placeholder="Username" required="true" autofocus="" />
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="true" />
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="remember-me" /> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            </form>
+
+        </div>
+
+        <script th:src="@{/webjars/jquery/jquery.min.js}" type="application/javascript"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" type="application/javascript"></script>
+        <script type="application/javascript">
+            $.noConflict();
+            jQuery(document).ready(function(){
+            setTimeout(function(){
+            jQuery('#error').fadeOut('slow');
+            }, 3000);
+            setTimeout(function(){
+            jQuery('#logout').fadeOut('slow');
+            }, 3000);
+            });
+        </script>
+
+    </body>
+</html>
