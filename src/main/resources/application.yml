@@ -31,3 +31,7 @@ server:
             
 folder:
     backup: /var/backups/mongobackups
+
+database:
+    backup-name: backup
+    restore-script: /var/data/mongodb-restore.sh
