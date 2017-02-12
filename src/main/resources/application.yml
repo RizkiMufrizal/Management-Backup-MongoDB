@@ -24,3 +24,6 @@ logging:
             springframework:
                 web: DEBUG    
             flywaydb: DEBUG
+            
+folder:
+    backup: /var/backups/mongobackups
